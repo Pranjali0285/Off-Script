@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    background: #f5f5f5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin-bottom: 30px;
+
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 10px 20px;
+
+    border: 1px solid #ccc;
+    border-radius: 25px;
+
+    background: white;
+
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.category-btn:hover {
+    background: #eee;
+}
+
+.category-btn.active {
+    background: #111;
+    color: white;
+    border-color: #111;
+}
+
+.topic-card {
+    width: 100%;
+    min-height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    margin-bottom: 30px;
+}
+
+#topic {
+    font-size: 2rem;
+    line-height: 1.4;
+}
+
+#timer {
+    font-size: 3rem;
+    font-weight: bold;
+
+    margin-bottom: 25px;
+}
+
+#btn {
+    padding: 14px 30px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #111;
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+#btn:hover {
+    background: #333;
+}
+
+#btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Timer buttons */
+
+.timer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.timer-buttons button {
+    padding: 11px 22px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    background: white;
+    color: #111;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.timer-buttons button:hover {
+    background: #111;
+    color: white;
+    border-color: #111;
+}
+
+.timer-buttons button:active {
+    transform: scale(0.96);
+}
+
+
+/* Generate Topic button */
+
+#btn {
+    padding: 14px 30px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #111;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+#btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+#btn:active {
+    transform: translateY(0);
+}
+
+#btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
