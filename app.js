@@ -1,12 +1,14 @@
 import express from "express";
 import axios from "axios";
+import path from "path";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-app.use(express.static("public"));
-
+app.set("views", path.join(process.cwd(), "views"));
 app.set("view engine", "ejs");
+
+app.use(express.static(path.join(process.cwd(), "public")));
 
 app.get("/", (req, res) => {
     res.render("index");
@@ -17,7 +19,8 @@ app.get("/random-topic", async (req, res) => {
     try {
         const category = req.query.category;
 
-        let url = "http://localhost:3001/api/topics/random";
+        const baseUrl = process.env.API_URL || "http://localhost:3001";
+        let url = `${baseUrl}/api/topics/random`;
 
         if (category && category !== "all") {
             url += `?category=${category}`;
@@ -30,7 +33,7 @@ app.get("/random-topic", async (req, res) => {
         });
 
     } catch (error) {
-        console.log(error);
+        console.log("Error fetching topic:", error.message);
 
         res.status(500).json({
             error: "Could not get a topic"
@@ -38,6 +41,10 @@ app.get("/random-topic", async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Speaking app running on port ${port}`);
-});
+if (process.env.NODE_ENV !== "production") {
+    app.listen(port, () => {
+        console.log(`Speaking app running on port ${port}`);
+    });
+}
+
+export default app;
